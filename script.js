@@ -315,5 +315,5 @@ window.addEventListener('scroll', optimizedScroll);
 // =============================================
 
 console.log('%c¡Hola! 👋', 'color: #0066FF; font-size: 24px; font-weight: bold;');
-console.log('%c¿Interesado en automatización? Contáctanos en contacto@fmxaiflows.com', 'color: #6B2DB8; font-size: 14px;');
+console.log('%c¿Interesado en automatización? Contáctanos en fmxaiflows@gmail.com', 'color: #6B2DB8; font-size: 14px;');
 console.log('%c🚀 Automatización Creada para Crecer Contigo', 'color: #0066FF; font-size: 12px;');
