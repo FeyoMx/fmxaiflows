@@ -51,4 +51,4 @@ User-agent: *
 Crawl-delay: 10
 
 # Sitemap
-Sitemap: https://www.fmxaiflows.com/sitemap.xml
+Sitemap: https://feyomx.github.io/fmxaiflows/sitemap.xml
