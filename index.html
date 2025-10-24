@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>FMX AI Flows - Automatización WhatsApp Business con n8n para Negocios en México</title>
+    <meta name="title" content="FMX AI Flows - Automatización WhatsApp Business con n8n para Negocios en México">
+    <meta name="description" content="Automatiza tu negocio con WhatsApp Business y n8n. Chatbots inteligentes, gestión de pedidos, citas y atención al cliente 24/7. Soluciones mexicanas desde $200/mes. Prueba gratis 30 días.">
+    <meta name="keywords" content="automatización whatsapp, chatbot whatsapp méxico, n8n méxico, automatización negocios, whatsapp business api, chatbot para ventas, automatización pedidos, gestión citas automática, chatbot restaurantes, automatización pymes méxico">
+    <meta name="author" content="FMX AI Flows">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="MX">
+    <meta name="geo.placename" content="México">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.fmxaiflows.com/">
+
+    <!-- Hreflang for Spanish Mexico -->
+    <link rel="alternate" hreflang="es-MX" href="https://www.fmxaiflows.com/">
+    <link rel="alternate" hreflang="es" href="https://www.fmxaiflows.com/">
+    <link rel="alternate" hreflang="x-default" href="https://www.fmxaiflows.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fmxaiflows.com/">
+    <meta property="og:title" content="FMX AI Flows - Automatización WhatsApp Business con n8n para Negocios en México">
+    <meta property="og:description" content="Automatiza tu negocio con WhatsApp Business y n8n. Chatbots inteligentes, gestión de pedidos, citas y atención al cliente 24/7. Soluciones mexicanas desde $200/mes.">
+    <meta property="og:image" content="https://www.fmxaiflows.com/fmxaiflowslogo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FMX AI Flows - Automatización de WhatsApp Business">
+    <meta property="og:site_name" content="FMX AI Flows">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.fmxaiflows.com/">
+    <meta name="twitter:title" content="FMX AI Flows - Automatización WhatsApp Business con n8n México">
+    <meta name="twitter:description" content="Automatiza tu negocio con WhatsApp Business y n8n. Chatbots inteligentes, gestión de pedidos, citas y atención 24/7. Desde $200/mes. Prueba gratis 30 días.">
+    <meta name="twitter:image" content="https://www.fmxaiflows.com/fmxaiflowslogo.png">
+    <meta name="twitter:image:alt" content="FMX AI Flows Logo">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FMX AI Flows">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="fmxaiflowslogo.png">
+    <link rel="apple-touch-icon" href="fmxaiflowslogo.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data - Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.fmxaiflows.com/#organization",
+      "name": "FMX AI Flows",
+      "alternateName": "FMX AI Flows - Automatización WhatsApp Business",
+      "url": "https://www.fmxaiflows.com/",
+      "logo": "https://www.fmxaiflows.com/fmxaiflowslogo.png",
+      "image": "https://www.fmxaiflows.com/fmxaiflowslogo.png",
+      "description": "Automatización de WhatsApp Business con n8n para pequeños y medianos negocios en México. Chatbots inteligentes, gestión de pedidos, citas y atención al cliente 24/7.",
+      "telephone": "+52-1-771-125-8884",
+      "email": "contacto@fmxaiflows.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "MX",
+        "addressLocality": "México"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "addressCountry": "MX"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "México"
+      },
+      "priceRange": "$200 - $8000 MXN",
+      "currenciesAccepted": "MXN",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "openingHours": "Mo-Su 00:00-24:00",
+      "sameAs": [
+        "https://www.facebook.com/people/FMX-AI-Flows/61582587070234/",
+        "https://wa.me/5217711258884"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-1-771-125-8884",
+        "contactType": "Customer Service",
+        "areaServed": "MX",
+        "availableLanguage": ["Spanish"],
+        "contactOption": "TollFree"
+      }
+    }
+    </script>
+
+    <!-- Structured Data - Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FMX AI Flows",
+      "url": "https://www.fmxaiflows.com/",
+      "logo": "https://www.fmxaiflows.com/fmxaiflowslogo.png",
+      "foundingDate": "2025",
+      "founders": [{
+        "@type": "Person",
+        "name": "FeyoMx"
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "MX"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-1-771-125-8884",
+        "contactType": "Sales",
+        "email": "contacto@fmxaiflows.com",
+        "areaServed": "MX",
+        "availableLanguage": "Spanish"
+      },
+      "sameAs": [
+        "https://www.facebook.com/people/FMX-AI-Flows/61582587070234/",
+        "https://wa.me/5217711258884"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Automatización de WhatsApp Business",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "FMX AI Flows",
+        "url": "https://www.fmxaiflows.com/"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "México"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Paquetes de Automatización",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "El Micro Flujo",
+              "description": "Chatbot de respuestas de emergencia con 5 preguntas frecuentes"
+            },
+            "price": "200",
+            "priceCurrency": "MXN",
+            "priceValidUntil": "2025-12-31"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "El Flujo Esencial",
+              "description": "Flujo completo de Pedidos o Citas con integración Google Sheets"
+            },
+            "price": "800",
+            "priceCurrency": "MXN",
+            "priceValidUntil": "2025-12-31"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "El Flujo Imparable",
+              "description": "Solución 100% personalizada con múltiples integraciones"
+            },
+            "price": "3000",
+            "priceCurrency": "MXN",
+            "priceValidUntil": "2025-12-31"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Structured Data - BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.fmxaiflows.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Soluciones",
+          "item": "https://www.fmxaiflows.com/#soluciones"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Paquetes",
+          "item": "https://www.fmxaiflows.com/#paquetes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contacto",
+          "item": "https://www.fmxaiflows.com/#contacto"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es FMX AI Flows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FMX AI Flows es una empresa mexicana especializada en automatización de WhatsApp Business usando n8n. Ofrecemos chatbots inteligentes, gestión automática de pedidos, citas y atención al cliente 24/7 para pequeños y medianos negocios en México."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta la automatización de WhatsApp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ofrecemos tres paquetes: El Micro Flujo desde $200/mes, El Flujo Esencial desde $800/mes, y El Flujo Imparable personalizado desde $3,000/mes. Todos incluyen prueba gratuita de 30 días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es n8n y por qué lo usan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n es una plataforma de automatización de código abierto que permite integrar más de 400 aplicaciones. Lo usamos porque es flexible, seguro y permite crear flujos de trabajo personalizados sin límites."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Ofrecen soporte técnico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, todos nuestros paquetes incluyen soporte técnico. El Flujo Esencial tiene soporte prioritario y El Flujo Imparable incluye soporte dedicado 24/7."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="fmxaiflowslogo2.png" alt="FMX AI Flows - Logotipo de automatización WhatsApp Business" width="50" height="50">
+                    <span>FMX AI Flows</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#soluciones">Soluciones</a></li>
+                    <li><a href="#paquetes">Paquetes</a></li>
+                    <li><a href="#contacto" class="btn-cta">Contáctanos</a></li>
+                </ul>
+                <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Automatización WhatsApp Business <span class="gradient-text">Creada para Crecer Contigo</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transforma el caos de mensajes en un sistema ordenado. Automatiza pedidos, citas y atención al cliente con tecnología inteligente n8n. Soluciones 100% mexicanas para PYMES.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#paquetes" class="btn btn-primary">Ver Paquetes</a>
+                        <a href="#soluciones" class="btn btn-secondary">Conocer Más</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Mexicano</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Disponible</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">0%</span>
+                            <span class="stat-label">Mensajes Perdidos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card card-1">
+                        <div class="card-icon" aria-hidden="true">💬</div>
+                        <div class="card-text">WhatsApp Business</div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon" aria-hidden="true">⚡</div>
+                        <div class="card-text">Automatización n8n</div>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon" aria-hidden="true">📊</div>
+                        <div class="card-text">Google Sheets</div>
+                    </div>
+                    <img src="fmxaiflowslogo.png" alt="FMX AI Flows - Plataforma de automatización WhatsApp con n8n" class="hero-logo" width="300" height="300">
+                </div>
+            </div>
+        </div>
+        <div class="hero-background" aria-hidden="true">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title">¿Caos de Mensajes o <span class="gradient-text">Flujo Imparable?</span></h2>
+            <div class="comparison-grid">
+                <article class="comparison-card chaos">
+                    <div class="comparison-header">
+                        <span class="comparison-icon" aria-hidden="true">😰</span>
+                        <h3>Sin Automatización</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>❌ Mensajes perdidos y clientes frustrados</li>
+                        <li>❌ Horas respondiendo lo mismo</li>
+                        <li>❌ Pedidos desorganizados en múltiples chats</li>
+                        <li>❌ Citas olvidadas y cancelaciones</li>
+                        <li>❌ No hay tiempo para crecer el negocio</li>
+                    </ul>
+                </article>
+                <article class="comparison-card flow">
+                    <div class="comparison-header">
+                        <span class="comparison-icon" aria-hidden="true">🚀</span>
+                        <h3>Con FMX AI Flows</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>✅ Respuestas automáticas 24/7</li>
+                        <li>✅ Pedidos organizados en Google Sheets</li>
+                        <li>✅ Recordatorios automáticos de citas</li>
+                        <li>✅ FAQ respondidas al instante</li>
+                        <li>✅ Más tiempo para hacer crecer tu negocio</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="soluciones" class="solutions">
+        <div class="container">
+            <h2 class="section-title">Soluciones de Automatización por <span class="gradient-text">Nicho</span></h2>
+            <div class="solutions-grid">
+                <article class="solution-card">
+                    <div class="solution-icon" aria-hidden="true">🍔</div>
+                    <h3>Ventas & Comida</h3>
+                    <p class="solution-tagline">"Construye una Máquina de Ventas que No Pide Aumento"</p>
+                    <ul class="solution-features">
+                        <li>Catálogo de productos automático en WhatsApp</li>
+                        <li>Toma de pedidos automatizada por WhatsApp</li>
+                        <li>Confirmación y seguimiento de pedidos</li>
+                        <li>Registro automático en Google Sheets</li>
+                    </ul>
+                </article>
+                <article class="solution-card">
+                    <div class="solution-icon" aria-hidden="true">💼</div>
+                    <h3>Servicios & Citas</h3>
+                    <p class="solution-tagline">"Libera la Agenda y Recupera tu Vida"</p>
+                    <ul class="solution-features">
+                        <li>Agendamiento automático de citas</li>
+                        <li>Recordatorios automáticos previos a citas</li>
+                        <li>Gestión inteligente de cancelaciones</li>
+                        <li>Sincronización con Google Calendar</li>
+                    </ul>
+                </article>
+                <article class="solution-card">
+                    <div class="solution-icon" aria-hidden="true">🏪</div>
+                    <h3>Negocios Locales</h3>
+                    <p class="solution-tagline">"Atención Profesional sin Contratar Personal"</p>
+                    <ul class="solution-features">
+                        <li>Respuestas instantáneas a preguntas frecuentes</li>
+                        <li>Información de horarios y ubicación automática</li>
+                        <li>Gestión eficiente de consultas</li>
+                        <li>Base de datos de clientes organizada</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="paquetes" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Elige tu <span class="gradient-text">Flujo de Automatización</span></h2>
+            <p class="section-subtitle">Precios diseñados para emprendedores mexicanos - Todos con prueba gratis 30 días</p>
+            <div class="pricing-grid">
+                <!-- Micro Flujo -->
+                <article class="pricing-card" itemscope itemtype="https://schema.org/Offer">
+                    <div class="pricing-badge">Prueba Gratis 30 Días</div>
+                    <h3 class="pricing-title" itemprop="name">El Micro Flujo</h3>
+                    <p class="pricing-subtitle">La Semilla</p>
+                    <div class="pricing-price">
+                        <span class="price-setup">$500 - $1,500</span>
+                        <span class="price-label">Setup único</span>
+                    </div>
+                    <div class="pricing-monthly">
+                        <span class="price-amount" itemprop="price">$200 - $500</span>
+                        <span class="price-period">/mes</span>
+                        <meta itemprop="priceCurrency" content="MXN">
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Chatbot de respuestas de emergencia</li>
+                        <li>✓ 5 preguntas frecuentes (FAQ)</li>
+                        <li>✓ Respuestas automáticas básicas</li>
+                        <li>✓ Ideal para empezar con automatización</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-outline" itemprop="url">Comenzar Prueba</a>
+                </article>
+
+                <!-- Flujo Esencial -->
+                <article class="pricing-card featured" itemscope itemtype="https://schema.org/Offer">
+                    <div class="pricing-badge popular">Más Popular</div>
+                    <h3 class="pricing-title" itemprop="name">El Flujo Esencial</h3>
+                    <p class="pricing-subtitle">El Motor</p>
+                    <div class="pricing-price">
+                        <span class="price-setup">$5,000 - $12,000</span>
+                        <span class="price-label">Setup único</span>
+                    </div>
+                    <div class="pricing-monthly">
+                        <span class="price-amount" itemprop="price">$800 - $2,500</span>
+                        <span class="price-period">/mes</span>
+                        <meta itemprop="priceCurrency" content="MXN">
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Flujo completo de Pedidos o Citas</li>
+                        <li>✓ Integración con Google Sheets</li>
+                        <li>✓ Confirmación y recordatorios automáticos</li>
+                        <li>✓ Respuestas ilimitadas</li>
+                        <li>✓ Soporte prioritario</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-primary" itemprop="url">Empezar Ahora</a>
+                </article>
+
+                <!-- Flujo Imparable -->
+                <article class="pricing-card" itemscope itemtype="https://schema.org/Offer">
+                    <div class="pricing-badge">Personalizado</div>
+                    <h3 class="pricing-title" itemprop="name">El Flujo Imparable</h3>
+                    <p class="pricing-subtitle">El Sistema</p>
+                    <div class="pricing-price">
+                        <span class="price-setup">$18,000+</span>
+                        <span class="price-label">Setup único</span>
+                    </div>
+                    <div class="pricing-monthly">
+                        <span class="price-amount" itemprop="price">$3,000 - $8,000+</span>
+                        <span class="price-period">/mes</span>
+                        <meta itemprop="priceCurrency" content="MXN">
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Solución 100% personalizada</li>
+                        <li>✓ Múltiples integraciones con n8n</li>
+                        <li>✓ Sistemas externos (CRM, ERP)</li>
+                        <li>✓ Consultoría profunda de automatización</li>
+                        <li>✓ Soporte dedicado 24/7</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-outline" itemprop="url">Consultar</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Tecnología <span class="gradient-text">Flexible y Potente</span></h2>
+            <p class="section-subtitle">Integraciones ilimitadas con más de 400 herramientas que ya usas</p>
+
+            <!-- Core Technologies -->
+            <div class="tech-category">
+                <h3 class="tech-category-title">Plataforma Core</h3>
+                <div class="tech-grid-core">
+                    <article class="tech-card featured-tech">
+                        <div class="tech-icon" aria-hidden="true">⚡</div>
+                        <h4>n8n</h4>
+                        <p>Motor de automatización de código abierto</p>
+                    </article>
+                    <article class="tech-card featured-tech">
+                        <div class="tech-icon" aria-hidden="true">☁️</div>
+                        <h4>Cloud Hosting</h4>
+                        <p>AWS, Google Cloud, Digital Ocean</p>
+                    </article>
+                    <article class="tech-card featured-tech">
+                        <div class="tech-icon" aria-hidden="true">🔒</div>
+                        <h4>Seguridad</h4>
+                        <p>SSL/TLS, OAuth2, Webhooks seguros</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Communication Channels -->
+            <div class="tech-category">
+                <h3 class="tech-category-title">Canales de Comunicación</h3>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">💬</div>
+                        <h4>WhatsApp Business API</h4>
+                        <p>API oficial y Evolution API</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📧</div>
+                        <h4>Email</h4>
+                        <p>Gmail, Outlook, SendGrid</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">💬</div>
+                        <h4>Telegram</h4>
+                        <p>Bots y notificaciones</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📱</div>
+                        <h4>SMS</h4>
+                        <p>Twilio, MessageBird</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">💼</div>
+                        <h4>Slack</h4>
+                        <p>Comunicación de equipo</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🎯</div>
+                        <h4>Discord</h4>
+                        <p>Comunidades y notificaciones</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Productivity Tools -->
+            <div class="tech-category">
+                <h3 class="tech-category-title">Productividad & Datos</h3>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📊</div>
+                        <h4>Google Sheets</h4>
+                        <p>Base de datos simple y poderosa</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📅</div>
+                        <h4>Google Calendar</h4>
+                        <p>Gestión de citas y eventos</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📁</div>
+                        <h4>Google Drive</h4>
+                        <p>Almacenamiento de archivos</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📋</div>
+                        <h4>Notion</h4>
+                        <p>Documentación y bases de datos</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📊</div>
+                        <h4>Airtable</h4>
+                        <p>Base de datos visual</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📝</div>
+                        <h4>Trello</h4>
+                        <p>Gestión de proyectos</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- E-commerce & Payments -->
+            <div class="tech-category">
+                <h3 class="tech-category-title">E-commerce & Pagos</h3>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🛒</div>
+                        <h4>Shopify</h4>
+                        <p>Tienda online completa</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🛍️</div>
+                        <h4>WooCommerce</h4>
+                        <p>WordPress e-commerce</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">💳</div>
+                        <h4>Stripe</h4>
+                        <p>Pagos en línea</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">💰</div>
+                        <h4>PayPal</h4>
+                        <p>Procesamiento de pagos</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🇲🇽</div>
+                        <h4>Mercado Pago</h4>
+                        <p>Pagos para México</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">💳</div>
+                        <h4>Conekta</h4>
+                        <p>Pagos mexicanos</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- CRM & Marketing -->
+            <div class="tech-category">
+                <h3 class="tech-category-title">CRM & Marketing</h3>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">👥</div>
+                        <h4>HubSpot</h4>
+                        <p>CRM y marketing</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📧</div>
+                        <h4>Mailchimp</h4>
+                        <p>Email marketing</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🎯</div>
+                        <h4>ActiveCampaign</h4>
+                        <p>Automatización de marketing</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📊</div>
+                        <h4>Salesforce</h4>
+                        <p>CRM empresarial</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">💼</div>
+                        <h4>Zoho CRM</h4>
+                        <p>Suite de negocios</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🔔</div>
+                        <h4>Facebook Ads</h4>
+                        <p>Publicidad y leads</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- AI & Advanced -->
+            <div class="tech-category">
+                <h3 class="tech-category-title">Inteligencia Artificial</h3>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🤖</div>
+                        <h4>OpenAI</h4>
+                        <p>ChatGPT, GPT-4</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🧠</div>
+                        <h4>Anthropic Claude</h4>
+                        <p>IA conversacional avanzada</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🎨</div>
+                        <h4>Midjourney</h4>
+                        <p>Generación de imágenes</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🗣️</div>
+                        <h4>ElevenLabs</h4>
+                        <p>Voz AI realista</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">📊</div>
+                        <h4>Google AI</h4>
+                        <p>Gemini, Vision API</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🔍</div>
+                        <h4>Pinecone</h4>
+                        <p>Búsqueda vectorial</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="tech-category">
+                <h3 class="tech-category-title">Bases de Datos</h3>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🗄️</div>
+                        <h4>PostgreSQL</h4>
+                        <p>Base de datos relacional</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🍃</div>
+                        <h4>MongoDB</h4>
+                        <p>Base de datos NoSQL</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🔥</div>
+                        <h4>Firebase</h4>
+                        <p>Backend en tiempo real</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">⚡</div>
+                        <h4>Redis</h4>
+                        <p>Cache y mensajería</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🐬</div>
+                        <h4>MySQL</h4>
+                        <p>Base de datos popular</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-icon" aria-hidden="true">🔷</div>
+                        <h4>Supabase</h4>
+                        <p>Backend open source</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="tech-cta">
+                <p class="tech-cta-text">¿No ves tu herramienta favorita? <strong>n8n se integra con más de 400+ aplicaciones</strong></p>
+                <a href="#contacto" class="btn btn-primary">Consultar Integración</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contacto" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para Transformar tu Negocio con Automatización?</h2>
+                <p>Comienza tu prueba gratuita de 30 días y descubre el poder de la automatización WhatsApp Business con n8n</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5217711258884?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20FMX%20AI%20Flows%20y%20la%20automatizaci%C3%B3n%20de%20WhatsApp%20Business" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp a FMX AI Flows">
+                        <span class="btn-icon" aria-hidden="true">💬</span>
+                        Contactar por WhatsApp
+                    </a>
+                    <a href="mailto:contacto@fmxaiflows.com" class="btn btn-secondary btn-large" aria-label="Enviar email a FMX AI Flows">
+                        <span class="btn-icon" aria-hidden="true">📧</span>
+                        Enviar Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="fmxaiflowslogo2.png" alt="FMX AI Flows - Logo" width="80" height="80">
+                    <p>Automatización Creada para Crecer Contigo</p>
+                    <p class="footer-tagline">Un proyecto de <strong>FeyoMx</strong></p>
+
+                    <!-- Social Links -->
+                    <div class="footer-social">
+                        <a href="https://wa.me/5217711258884?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20FMX%20AI%20Flows" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp de FMX AI Flows">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="https://www.facebook.com/people/FMX-AI-Flows/61582587070234/" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook de FMX AI Flows">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="mailto:contacto@fmxaiflows.com" class="social-link email" aria-label="Email de contacto FMX AI Flows">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Soluciones</h4>
+                        <ul>
+                            <li><a href="#soluciones">Ventas & Comida</a></li>
+                            <li><a href="#soluciones">Servicios & Citas</a></li>
+                            <li><a href="#soluciones">Negocios Locales</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Paquetes</h4>
+                        <ul>
+                            <li><a href="#paquetes">El Micro Flujo</a></li>
+                            <li><a href="#paquetes">El Flujo Esencial</a></li>
+                            <li><a href="#paquetes">El Flujo Imparable</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="#inicio">Acerca de</a></li>
+                            <li><a href="#soluciones">Casos de Uso</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FMX AI Flows. Todos los derechos reservados.</p>
+                <p class="footer-made-in">Hecho con amor en México</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
