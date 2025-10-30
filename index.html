@@ -46,7 +46,8 @@
     <meta property="twitter:image:alt" content="FMX AI Flows Logo">
 
     <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0A0E27" media="(prefers-color-scheme: dark)">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -55,13 +56,31 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="fmxaiflowslogo.png">
     <link rel="apple-touch-icon" href="fmxaiflowslogo.png">
 
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'send_page_view': true,
+            'anonymize_ip': true
+        });
+    </script>
 
     <!-- Structured Data - Local Business Schema -->
     <script type="application/ld+json">
@@ -280,7 +299,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="fmxaiflowslogo2.png" alt="FMX AI Flows - Logotipo de automatización WhatsApp Business" width="50" height="50">
+                    <img src="fmxaiflowslogo2.png" alt="FMX AI Flows - Logotipo de automatización WhatsApp Business" width="50" height="50" loading="eager">
                     <span>FMX AI Flows</span>
                 </div>
                 <ul class="nav-menu">
@@ -346,7 +365,7 @@
                         <div class="card-icon" aria-hidden="true">📊</div>
                         <div class="card-text">Google Sheets</div>
                     </div>
-                    <img src="fmxaiflowslogo.png" alt="FMX AI Flows - Plataforma de automatización WhatsApp con n8n" class="hero-logo" width="300" height="300">
+                    <img src="fmxaiflowslogo.png" alt="FMX AI Flows - Plataforma de automatización WhatsApp con n8n" class="hero-logo" width="300" height="300" loading="lazy">
                 </div>
             </div>
         </div>
@@ -794,7 +813,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="fmxaiflowslogo2.png" alt="FMX AI Flows - Logo" width="80" height="80">
+                    <img src="fmxaiflowslogo2.png" alt="FMX AI Flows - Logo" width="80" height="80" loading="lazy">
                     <p>Automatización Creada para Crecer Contigo</p>
                     <p class="footer-tagline">Un proyecto de <strong>FeyoMx</strong></p>
 
