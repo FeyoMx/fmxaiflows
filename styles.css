@@ -4,26 +4,13 @@
    ============================================= */
 
 :root {
-    /* Brand Colors */
+    /* Brand Colors - Constant across themes */
     --electric-blue: #0066FF;
     --deep-purple: #6B2DB8;
     --light-blue: #00A3FF;
     --dark-purple: #4A1F7F;
 
-    /* Neutral Colors */
-    --dark-bg: #0A0E27;
-    --darker-bg: #050814;
-    --light-bg: #F8F9FA;
-    --white: #FFFFFF;
-    --gray-50: #F9FAFB;
-    --gray-100: #F3F4F6;
-    --gray-200: #E5E7EB;
-    --gray-300: #D1D5DB;
-    --gray-700: #374151;
-    --gray-800: #1F2937;
-    --gray-900: #111827;
-
-    /* Spacing */
+    /* Spacing - Constant across themes */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -32,16 +19,46 @@
     --spacing-2xl: 4rem;
     --spacing-3xl: 6rem;
 
-    /* Typography */
+    /* Typography - Constant across themes */
     --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
     --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-    /* Border Radius */
+    /* Border Radius - Constant across themes */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     --radius-2xl: 1.5rem;
+}
+
+/* Light Mode (Default) */
+:root,
+[data-theme="light"] {
+    /* Background Colors */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --bg-tertiary: #F9FAFB;
+    --bg-dark: #0A0E27;
+    --bg-darker: #050814;
+
+    /* Text Colors */
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-tertiary: #6B7280;
+    --text-inverse: #FFFFFF;
+
+    /* Border Colors */
+    --border-light: #E5E7EB;
+    --border-medium: #D1D5DB;
+
+    /* Neutral Colors */
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -49,6 +66,58 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     --shadow-glow: 0 0 30px rgba(0, 102, 255, 0.3);
+
+    /* Card backgrounds */
+    --card-bg: #FFFFFF;
+    --card-border: #E5E7EB;
+
+    /* Navbar */
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    /* Background Colors */
+    --bg-primary: #0A0E27;
+    --bg-secondary: #121829;
+    --bg-tertiary: #1A2238;
+    --bg-dark: #050814;
+    --bg-darker: #030509;
+
+    /* Text Colors */
+    --text-primary: #F9FAFB;
+    --text-secondary: #D1D5DB;
+    --text-tertiary: #9CA3AF;
+    --text-inverse: #111827;
+
+    /* Border Colors */
+    --border-light: #2A3346;
+    --border-medium: #374151;
+
+    /* Neutral Colors - Adjusted for dark mode */
+    --gray-50: #374151;
+    --gray-100: #2A3346;
+    --gray-200: #1F2937;
+    --gray-300: #9CA3AF;
+    --gray-700: #D1D5DB;
+    --gray-800: #E5E7EB;
+    --gray-900: #F9FAFB;
+
+    /* Shadows - More pronounced in dark mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px rgba(0, 102, 255, 0.5);
+
+    /* Card backgrounds */
+    --card-bg: #121829;
+    --card-border: #2A3346;
+
+    /* Navbar */
+    --navbar-bg: rgba(10, 14, 39, 0.95);
+    --navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* =============================================
@@ -68,9 +137,10 @@ html {
 body {
     font-family: var(--font-body);
     line-height: 1.6;
-    color: var(--gray-900);
-    background-color: var(--white);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -87,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .gradient-text {
@@ -106,7 +176,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-subtitle {
     text-align: center;
     font-size: 1.125rem;
-    color: var(--gray-700);
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-xl);
     max-width: 600px;
     margin-left: auto;
@@ -122,9 +192,9 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--navbar-bg);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--navbar-shadow);
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -142,7 +212,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: var(--spacing-sm);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .logo img {
@@ -159,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--gray-700);
+    color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -170,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-cta {
     background: linear-gradient(135deg, var(--electric-blue) 0%, var(--deep-purple) 100%);
-    color: var(--white) !important;
+    color: var(--text-inverse) !important;
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-lg);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -193,9 +263,42 @@ h1, h2, h3, h4, h5, h6 {
 .menu-toggle span {
     width: 25px;
     height: 3px;
-    background: var(--gray-900);
+    background: var(--text-primary);
     border-radius: 2px;
     transition: all 0.3s ease;
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+    background: var(--bg-secondary);
+    border-color: var(--electric-blue);
+    transform: scale(1.05);
+}
+
+.theme-toggle svg,
+.theme-toggle span {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.theme-icon {
+    font-size: 1.25rem;
 }
 
 /* =============================================
@@ -267,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--gray-700);
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-xl);
     line-height: 1.6;
 }
@@ -295,7 +398,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
     background: linear-gradient(135deg, var(--electric-blue) 0%, var(--deep-purple) 100%);
-    color: var(--white);
+    color: var(--text-inverse);
     box-shadow: var(--shadow-md);
 }
 
@@ -305,14 +408,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary {
-    background: var(--white);
+    background: var(--bg-primary);
     color: var(--electric-blue);
     border: 2px solid var(--electric-blue);
 }
 
 .btn-secondary:hover {
     background: var(--electric-blue);
-    color: var(--white);
+    color: var(--text-inverse);
 }
 
 .btn-outline {
@@ -323,7 +426,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-outline:hover {
     background: var(--electric-blue);
-    color: var(--white);
+    color: var(--text-inverse);
 }
 
 .btn-large {
@@ -352,7 +455,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-label {
     font-size: 0.875rem;
-    color: var(--gray-700);
+    color: var(--text-secondary);
 }
 
 .hero-image {
@@ -372,7 +475,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .floating-card {
     position: absolute;
-    background: var(--white);
+    background: var(--card-bg);
     padding: var(--spacing-md);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
@@ -406,7 +509,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-text {
     font-weight: 600;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 /* =============================================
@@ -415,7 +518,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .comparison {
     padding: var(--spacing-3xl) 0;
-    background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .comparison-grid {
@@ -427,14 +530,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .comparison-card {
-    background: var(--white);
+    background: var(--card-bg);
     padding: var(--spacing-xl);
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
 }
 
 .comparison-card.chaos {
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--card-border);
 }
 
 .comparison-card.flow {
@@ -475,7 +578,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .solutions {
     padding: var(--spacing-3xl) 0;
-    background: var(--white);
+    background: var(--bg-primary);
 }
 
 .solutions-grid {
@@ -485,10 +588,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .solution-card {
-    background: var(--white);
+    background: var(--card-bg);
     padding: var(--spacing-xl);
     border-radius: var(--radius-2xl);
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--card-border);
     transition: all 0.3s ease;
 }
 
@@ -541,7 +644,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing {
     padding: var(--spacing-3xl) 0;
-    background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
 .pricing-grid {
@@ -553,10 +656,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-card {
-    background: var(--white);
+    background: var(--card-bg);
     padding: var(--spacing-xl);
     border-radius: var(--radius-2xl);
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--card-border);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -583,8 +686,8 @@ h1, h2, h3, h4, h5, h6 {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--gray-900);
-    color: var(--white);
+    background: var(--text-primary);
+    color: var(--bg-primary);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-lg);
     font-size: 0.875rem;
@@ -603,7 +706,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-subtitle {
-    color: var(--gray-700);
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
     font-style: italic;
 }
@@ -617,12 +720,12 @@ h1, h2, h3, h4, h5, h6 {
 .price-setup {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .price-label {
     font-size: 0.875rem;
-    color: var(--gray-700);
+    color: var(--text-secondary);
 }
 
 .pricing-monthly {
@@ -631,7 +734,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: var(--spacing-xs);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-lg);
-    border-bottom: 2px solid var(--gray-200);
+    border-bottom: 2px solid var(--card-border);
 }
 
 .price-amount {
@@ -642,7 +745,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .price-period {
     font-size: 1rem;
-    color: var(--gray-700);
+    color: var(--text-secondary);
 }
 
 .pricing-features {
@@ -665,13 +768,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .tech-stack {
     padding: var(--spacing-3xl) 0;
-    background: var(--dark-bg);
-    color: var(--white);
+    background: var(--bg-dark);
+    color: var(--text-inverse);
 }
 
 .tech-stack .section-title,
 .tech-stack .section-subtitle {
-    color: var(--white);
+    color: var(--text-inverse);
 }
 
 .tech-category {
@@ -680,7 +783,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .tech-category-title {
     font-size: 1.75rem;
-    color: var(--white);
+    color: var(--text-inverse);
     text-align: center;
     margin-bottom: var(--spacing-xl);
     position: relative;
@@ -752,7 +855,7 @@ h1, h2, h3, h4, h5, h6 {
 .tech-card h3 {
     font-size: 1.125rem;
     margin-bottom: var(--spacing-xs);
-    color: var(--white);
+    color: var(--text-inverse);
     font-weight: 600;
 }
 
@@ -781,7 +884,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .tech-cta-text {
     font-size: 1.25rem;
-    color: var(--white);
+    color: var(--text-inverse);
     margin-bottom: var(--spacing-md);
 }
 
@@ -806,7 +909,7 @@ h1, h2, h3, h4, h5, h6 {
 .cta-content h2 {
     font-size: 3rem;
     margin-bottom: var(--spacing-md);
-    color: var(--white);
+    color: var(--text-inverse);
 }
 
 .cta-content p {
@@ -823,7 +926,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cta-buttons .btn-primary {
-    background: var(--white);
+    background: var(--text-inverse);
     color: var(--electric-blue);
 }
 
@@ -833,12 +936,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .cta-buttons .btn-secondary {
     background: transparent;
-    color: var(--white);
-    border-color: var(--white);
+    color: var(--text-inverse);
+    border-color: var(--text-inverse);
 }
 
 .cta-buttons .btn-secondary:hover {
-    background: var(--white);
+    background: var(--text-inverse);
     color: var(--electric-blue);
 }
 
@@ -851,8 +954,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================= */
 
 .footer {
-    background: var(--darker-bg);
-    color: var(--gray-300);
+    background: var(--bg-darker);
+    color: var(--text-secondary);
     padding: var(--spacing-3xl) 0 var(--spacing-lg);
 }
 
@@ -892,7 +995,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-lg);
     text-decoration: none;
-    color: var(--white);
+    color: var(--text-inverse);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
@@ -935,7 +1038,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-column h4 {
-    color: var(--white);
+    color: var(--text-inverse);
     margin-bottom: var(--spacing-md);
     font-size: 1.125rem;
 }
@@ -948,7 +1051,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-column a {
-    color: var(--gray-300);
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1008,7 +1111,8 @@ h1, h2, h3, h4, h5, h6 {
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--white);
+        background: var(--navbar-bg);
+        backdrop-filter: blur(10px);
         flex-direction: column;
         padding: var(--spacing-md);
         box-shadow: var(--shadow-lg);
