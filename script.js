@@ -347,6 +347,7 @@ function initDarkMode() {
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         updateThemeIcon(theme);
+        updateThemeColorMeta(theme);
     };
 
     // Update icon based on current theme
@@ -356,11 +357,32 @@ function initDarkMode() {
         }
     };
 
+    // Update meta theme-color dynamically
+    const updateThemeColorMeta = (theme) => {
+        const themeColorLight = document.querySelector('meta[name="theme-color"][media*="light"]');
+        const themeColorDark = document.querySelector('meta[name="theme-color"][media*="dark"]');
+
+        // Also set a general theme-color for browsers that don't support media queries
+        let generalThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+        if (!generalThemeColor) {
+            generalThemeColor = document.createElement('meta');
+            generalThemeColor.setAttribute('name', 'theme-color');
+            document.head.appendChild(generalThemeColor);
+        }
+
+        generalThemeColor.setAttribute('content', theme === 'dark' ? '#0A0E27' : '#FFFFFF');
+    };
+
     // Toggle theme
     const toggleTheme = () => {
         const currentTheme = html.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
+
+        // Track theme change in Analytics
+        if (typeof trackThemeChange === 'function') {
+            trackThemeChange(newTheme);
+        }
     };
 
     // Initialize theme on page load
@@ -385,3 +407,128 @@ function initDarkMode() {
 
 // Initialize dark mode when DOM is loaded
 document.addEventListener('DOMContentLoaded', initDarkMode);
+
+// =============================================
+// Google Analytics Event Tracking
+// =============================================
+
+function trackEvent(eventName, eventParams = {}) {
+    // Check if gtag is available
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, eventParams);
+    }
+}
+
+function initAnalyticsTracking() {
+    // Track WhatsApp button clicks
+    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a.social-link.whatsapp');
+    whatsappLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            trackEvent('contact_whatsapp', {
+                event_category: 'Conversión',
+                event_label: 'Click WhatsApp',
+                value: this.href
+            });
+        });
+    });
+
+    // Track Email button clicks
+    const emailLinks = document.querySelectorAll('a[href^="mailto:"], a.social-link.email');
+    emailLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            trackEvent('contact_email', {
+                event_category: 'Conversión',
+                event_label: 'Click Email',
+                value: this.href
+            });
+        });
+    });
+
+    // Track CTA button clicks
+    const ctaButtons = document.querySelectorAll('.btn-cta, .btn-primary');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const buttonText = this.textContent.trim();
+            trackEvent('cta_click', {
+                event_category: 'Engagement',
+                event_label: buttonText,
+                value: this.href || 'button'
+            });
+        });
+    });
+
+    // Track pricing card interactions
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    pricingCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            const packageName = this.querySelector('.pricing-title')?.textContent || 'Unknown';
+            trackEvent('pricing_click', {
+                event_category: 'Engagement',
+                event_label: packageName
+            });
+        });
+    });
+
+    // Track navigation clicks
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const section = this.getAttribute('href');
+            trackEvent('navigation_click', {
+                event_category: 'Navigation',
+                event_label: section
+            });
+        });
+    });
+
+    // Track scroll depth
+    let scrollTracked = {
+        25: false,
+        50: false,
+        75: false,
+        100: false
+    };
+
+    window.addEventListener('scroll', throttle(function() {
+        const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+
+        for (let threshold in scrollTracked) {
+            if (scrollPercent >= threshold && !scrollTracked[threshold]) {
+                scrollTracked[threshold] = true;
+                trackEvent('scroll_depth', {
+                    event_category: 'Engagement',
+                    event_label: `${threshold}%`,
+                    value: threshold
+                });
+            }
+        }
+    }, 1000));
+
+    // Track social media clicks
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            let platform = 'Unknown';
+            if (this.classList.contains('whatsapp')) platform = 'WhatsApp';
+            if (this.classList.contains('facebook')) platform = 'Facebook';
+            if (this.classList.contains('email')) platform = 'Email';
+
+            trackEvent('social_click', {
+                event_category: 'Social',
+                event_label: platform
+            });
+        });
+    });
+}
+
+// Track theme changes
+function trackThemeChange(theme) {
+    trackEvent('theme_change', {
+        event_category: 'User Preference',
+        event_label: theme,
+        value: theme === 'dark' ? 1 : 0
+    });
+}
+
+// Initialize analytics tracking when DOM is loaded
+document.addEventListener('DOMContentLoaded', initAnalyticsTracking);
