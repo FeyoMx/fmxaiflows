@@ -995,9 +995,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-lg);
     text-decoration: none;
-    color: var(--text-inverse);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
     font-weight: 500;
     font-size: 0.875rem;
@@ -1005,25 +1005,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .social-link:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .social-link.whatsapp:hover {
     background: #25D366;
     border-color: #25D366;
     color: white;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
 }
 
 .social-link.facebook:hover {
     background: #1877F2;
     border-color: #1877F2;
     color: white;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
 }
 
 .social-link.email:hover {
     background: var(--electric-blue);
     border-color: var(--electric-blue);
     color: white;
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
 }
 
 .social-link svg {
