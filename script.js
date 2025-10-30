@@ -317,3 +317,71 @@ window.addEventListener('scroll', optimizedScroll);
 console.log('%c¡Hola! 👋', 'color: #0066FF; font-size: 24px; font-weight: bold;');
 console.log('%c¿Interesado en automatización? Contáctanos en fmxaiflows@gmail.com', 'color: #6B2DB8; font-size: 14px;');
 console.log('%c🚀 Automatización Creada para Crecer Contigo', 'color: #0066FF; font-size: 12px;');
+
+// =============================================
+// Dark Mode Implementation
+// =============================================
+
+function initDarkMode() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = document.querySelector('.theme-icon');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or use system preference
+    const getPreferredTheme = () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+
+        return 'light';
+    };
+
+    // Set theme
+    const setTheme = (theme) => {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateThemeIcon(theme);
+    };
+
+    // Update icon based on current theme
+    const updateThemeIcon = (theme) => {
+        if (themeIcon) {
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    };
+
+    // Toggle theme
+    const toggleTheme = () => {
+        const currentTheme = html.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    };
+
+    // Initialize theme on page load
+    const initialTheme = getPreferredTheme();
+    setTheme(initialTheme);
+
+    // Add click event to toggle button
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Listen for system theme changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            // Only auto-switch if user hasn't manually set a preference
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+}
+
+// Initialize dark mode when DOM is loaded
+document.addEventListener('DOMContentLoaded', initDarkMode);
