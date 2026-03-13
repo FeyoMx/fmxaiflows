@@ -429,6 +429,13 @@ function initAnalyticsTracking() {
                 event_label: 'Click WhatsApp',
                 value: this.href
             });
+
+            // Meta Pixel 'Contact' tracking
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', {
+                    method: 'WhatsApp'
+                });
+            }
         });
     });
 
@@ -441,6 +448,13 @@ function initAnalyticsTracking() {
                 event_label: 'Click Email',
                 value: this.href
             });
+
+            // Meta Pixel 'Contact' tracking
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', {
+                    method: 'Email'
+                });
+            }
         });
     });
 
