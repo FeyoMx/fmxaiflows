@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initAnimations();
     initSmoothScroll();
+    initDarkMode();
+    initAnalyticsTracking();
 });
 
 // =============================================
@@ -22,8 +24,9 @@ function initNavigation() {
     // Toggle mobile menu
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.toggle('active');
             this.classList.toggle('active');
+            this.setAttribute('aria-expanded', String(isExpanded));
         });
 
         // Close menu when clicking a link
@@ -32,6 +35,7 @@ function initNavigation() {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -40,6 +44,7 @@ function initNavigation() {
             if (!event.target.closest('.nav-wrapper')) {
                 navMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
@@ -56,7 +61,7 @@ function initNavigation() {
         }
 
         lastScroll = currentScroll;
-    });
+    }, { passive: true });
 }
 
 // =============================================
@@ -104,16 +109,16 @@ function initAnimations() {
         card.style.animationDelay = `${index * 0.1}s`;
     });
 
-    // Parallax effect for gradient orbs
-    window.addEventListener('scroll', function() {
+    // Parallax effect for gradient orbs (throttled + cached NodeList)
+    const parallaxOrbs = document.querySelectorAll('.gradient-orb');
+    const handleParallax = throttle(function() {
         const scrolled = window.pageYOffset;
-        const orbs = document.querySelectorAll('.gradient-orb');
-
-        orbs.forEach((orb, index) => {
+        parallaxOrbs.forEach((orb, index) => {
             const speed = (index + 1) * 0.5;
             orb.style.transform = `translateY(${scrolled * speed}px)`;
         });
-    });
+    }, 16);
+    window.addEventListener('scroll', handleParallax, { passive: true });
 
     // Pricing card hover effect
     const pricingCards = document.querySelectorAll('.pricing-card');
@@ -123,27 +128,31 @@ function initAnimations() {
         });
     });
 
-    // Solution card tilt effect
+    // Solution card tilt effect (only on pointer devices, not touch)
     const solutionCards = document.querySelectorAll('.solution-card');
-    solutionCards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+    const isTouchDevice = window.matchMedia('(hover: none)').matches;
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+    if (!isTouchDevice) {
+        solutionCards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
 
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
         });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-        });
-    });
+    }
 }
 
 // =============================================
@@ -173,20 +182,6 @@ function initSmoothScroll() {
         });
     });
 }
-
-// =============================================
-// Fade In Animation Class
-// =============================================
-
-// Add CSS for fade-in through JavaScript
-const style = document.createElement('style');
-style.textContent = `
-    .fade-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(style);
 
 // =============================================
 // Stats Counter Animation
@@ -233,20 +228,7 @@ if (heroStats) {
 // =============================================
 // WhatsApp Link Handler
 // =============================================
-
-// Update WhatsApp links with actual phone number
-document.addEventListener('DOMContentLoaded', function() {
-    const whatsappLinks = document.querySelectorAll('a[href^="https://wa.me/52"]');
-
-    whatsappLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // If you want to add a default message
-            const message = encodeURIComponent('Hola, me interesa conocer más sobre FMX AI Flows');
-            // Update the href with your actual WhatsApp number
-            // this.href = `https://wa.me/52YOUR_NUMBER?text=${message}`;
-        });
-    });
-});
+// WhatsApp click tracking is handled in initAnalyticsTracking()
 
 // =============================================
 // Form Validation (if you add a contact form)
@@ -302,13 +284,6 @@ function throttle(func, limit) {
         }
     };
 }
-
-// Optimized scroll handler
-const optimizedScroll = throttle(function() {
-    // Your scroll handling code here
-}, 100);
-
-window.addEventListener('scroll', optimizedScroll);
 
 // =============================================
 // Console Easter Egg
@@ -405,8 +380,6 @@ function initDarkMode() {
     }
 }
 
-// Initialize dark mode when DOM is loaded
-document.addEventListener('DOMContentLoaded', initDarkMode);
 
 // =============================================
 // Google Analytics Event Tracking
@@ -516,7 +489,7 @@ function initAnalyticsTracking() {
                 });
             }
         }
-    }, 1000));
+    }, 1000), { passive: true });
 
     // Track social media clicks
     const socialLinks = document.querySelectorAll('.social-link');
@@ -544,5 +517,3 @@ function trackThemeChange(theme) {
     });
 }
 
-// Initialize analytics tracking when DOM is loaded
-document.addEventListener('DOMContentLoaded', initAnalyticsTracking);
