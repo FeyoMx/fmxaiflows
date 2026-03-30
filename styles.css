@@ -1362,6 +1362,12 @@ h1, h2, h3, h4, h5, h6 {
     .comparison-grid,
     .pricing-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        max-width: 100%;
+    }
+
+    .comparison-card {
+        padding: var(--spacing-md);
     }
 
     .pricing-card.featured {
