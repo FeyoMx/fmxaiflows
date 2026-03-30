@@ -1000,7 +1000,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="dark"] .tech-cta-text {
-    color: var(--text-inverse);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 [data-theme="light"] .tech-cta-text {
@@ -1180,7 +1180,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="dark"] .footer-column h4 {
-    color: var(--text-inverse);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-column ul {
@@ -1401,6 +1401,682 @@ h1, h2, h3, h4, h5, h6 {
     .hero-stats {
         flex-direction: column;
         gap: var(--spacing-md);
+    }
+}
+
+/* =============================================
+   Design Upgrade v2 — Premium Visual System
+   ============================================= */
+
+/* --- New custom properties --- */
+:root {
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+    --whatsapp-green: #25D366;
+    --amber-accent: #FF9500;
+    --shadow-brand-sm: 0 2px 8px rgba(0, 102, 255, 0.15);
+    --shadow-brand-md: 0 4px 16px rgba(0, 102, 255, 0.2);
+    --shadow-brand-lg: 0 8px 32px rgba(0, 102, 255, 0.25);
+}
+
+/* --- Base typography --- */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+.hero-title {
+    font-weight: 800;
+    font-size: 3.75rem;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.section-title {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.stat-number {
+    font-weight: 800;
+    font-size: 2.25rem;
+    letter-spacing: -0.04em;
+}
+
+.pricing-title {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.nav-menu a {
+    font-weight: 600;
+}
+
+/* --- Hero: repositioned orbs + amber 3rd orb --- */
+.orb-1 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle at 40% 40%, #0066FF 0%, #6B2DB8 45%, transparent 70%);
+    top: -350px;
+    left: -150px;
+    right: auto;
+    opacity: 0.22;
+    filter: blur(100px);
+}
+
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle at 60% 60%, #FF9500 0%, #6B2DB8 50%, transparent 72%);
+    bottom: -200px;
+    right: -50px;
+    left: auto;
+    opacity: 0.18;
+    filter: blur(90px);
+}
+
+.hero-background::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #25D366 0%, transparent 70%);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.08;
+    filter: blur(80px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* --- Hero: grain texture overlay --- */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+}
+
+[data-theme="dark"] .hero::after {
+    opacity: 0.06;
+}
+
+.hero .container,
+.hero-background {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Hero: asymmetric grid + warm gradient text --- */
+.hero-content {
+    grid-template-columns: 1.15fr 0.85fr;
+}
+
+.hero-title .gradient-text {
+    background: linear-gradient(110deg, #0066FF 0%, #6B2DB8 50%, #FF9500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- Hero: floating cards glassmorphism --- */
+.floating-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    border-radius: 16px;
+}
+
+[data-theme="dark"] .floating-card {
+    background: rgba(18, 24, 41, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Hero stats: last stat label in green --- */
+.hero-stats .stat:last-child .stat-label {
+    color: var(--whatsapp-green);
+    font-weight: 600;
+}
+
+/* --- Navbar: gradient bottom line --- */
+.navbar {
+    position: relative;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--electric-blue) 30%, var(--deep-purple) 70%, transparent 100%);
+    opacity: 0.4;
+}
+
+/* --- All buttons: pill geometry + shimmer --- */
+.btn {
+    border-radius: 100px;
+    letter-spacing: 0.01em;
+    font-size: 0.9375rem;
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::after {
+    left: 150%;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, var(--electric-blue) 0%, var(--deep-purple) 100%);
+    border-color: transparent;
+    color: #FFFFFF;
+}
+
+.btn-outline {
+    border-radius: 100px;
+}
+
+/* --- Comparison cards: colored left border bars --- */
+.comparison-card.flow {
+    border-left: 4px solid var(--whatsapp-green);
+    border-top: 2px solid var(--electric-blue);
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%);
+}
+
+.comparison-card.chaos {
+    border-left: 4px solid #EF4444;
+    border-top: 2px solid rgba(239, 68, 68, 0.3);
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+/* --- Solution cards: amber tagline --- */
+.solution-tagline {
+    color: var(--amber-accent);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.03em;
+}
+
+/* --- Pricing: featured card gradient top bar --- */
+.pricing-card.featured {
+    border: none;
+    box-shadow: 0 0 0 2px var(--electric-blue), 0 20px 60px rgba(0, 102, 255, 0.25), 0 4px 20px rgba(107, 45, 184, 0.15);
+}
+
+.pricing-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0066FF 0%, #6B2DB8 50%, #25D366 100%);
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.04) translateY(-6px);
+    box-shadow: 0 0 0 2px var(--electric-blue), 0 30px 80px rgba(0, 102, 255, 0.35);
+}
+
+/* --- Pricing badge: pill with glow --- */
+.pricing-badge {
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pricing-badge.popular {
+    box-shadow: 0 4px 16px rgba(0, 102, 255, 0.45), 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+/* --- Pricing: amber subtitle (La Semilla, El Motor, El Sistema) --- */
+.pricing-subtitle {
+    color: var(--amber-accent);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+/* --- Pricing: gradient price amount --- */
+.price-amount {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--electric-blue) 0%, var(--deep-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing-card.featured .price-amount {
+    font-size: 2.25rem;
+}
+
+/* --- Pricing: feature bullets con ✦ --- */
+.pricing-features li {
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.pricing-features li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--electric-blue);
+    font-size: 0.7rem;
+    top: 5px;
+}
+
+.pricing-card.featured .pricing-features li::before {
+    color: var(--whatsapp-green);
+}
+
+/* --- Tech stack: radial node glow + enhanced glass --- */
+.tech-stack {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-stack::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.12) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.tech-stack .container {
+    position: relative;
+    z-index: 1;
+}
+
+[data-theme="dark"] .tech-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .tech-card:hover {
+    background: rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.35);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 30px rgba(0, 102, 255, 0.2);
+    transform: translateY(-6px);
+}
+
+.tech-card.featured-tech {
+    border: 1px solid rgba(0, 102, 255, 0.4);
+    background: rgba(0, 102, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(0, 102, 255, 0.3), 0 0 40px rgba(0, 102, 255, 0.08);
+}
+
+.tech-card.featured-tech:hover {
+    background: rgba(0, 102, 255, 0.15);
+    box-shadow: inset 0 1px 0 rgba(0, 102, 255, 0.4), 0 0 50px rgba(0, 102, 255, 0.3);
+    transform: translateY(-10px);
+}
+
+/* --- Tech icons: bounce on hover --- */
+.tech-card .tech-icon {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.2) translateY(-2px);
+}
+
+/* --- Tech card entrance stagger --- */
+.tech-grid .tech-card:nth-child(1) { transition-delay: 0.05s; }
+.tech-grid .tech-card:nth-child(2) { transition-delay: 0.10s; }
+.tech-grid .tech-card:nth-child(3) { transition-delay: 0.15s; }
+.tech-grid .tech-card:nth-child(4) { transition-delay: 0.20s; }
+.tech-grid .tech-card:nth-child(5) { transition-delay: 0.25s; }
+.tech-grid .tech-card:nth-child(6) { transition-delay: 0.30s; }
+
+/* --- Section diagonal cuts (desktop) --- */
+.comparison {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%);
+    margin-bottom: -40px;
+    padding-bottom: calc(var(--spacing-3xl) + 40px);
+}
+
+.solutions {
+    clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+    padding-top: calc(var(--spacing-3xl) + 40px);
+}
+
+.cta-section {
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+    padding-top: calc(var(--spacing-3xl) + 30px);
+}
+
+@media (max-width: 768px) {
+    .comparison,
+    .solutions,
+    .cta-section {
+        clip-path: none;
+        margin-bottom: 0;
+        padding-bottom: var(--spacing-3xl);
+        padding-top: var(--spacing-3xl);
+    }
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Footer tagline: WhatsApp green --- */
+.footer-tagline {
+    color: var(--whatsapp-green);
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+/* --- Scrollbar: branded gradient --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--electric-blue), var(--deep-purple));
+    border-radius: 3px;
+}
+
+/* =============================================
+   Casos de Éxito Section
+   ============================================= */
+
+.casos-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.casos-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.06) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.casos-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.06) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.casos-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.casos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+/* --- Caso Card --- */
+.caso-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.caso-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--electric-blue) 0%, var(--deep-purple) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.caso-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-brand-lg);
+    border-color: var(--electric-blue);
+}
+
+.caso-card:hover::before {
+    opacity: 1;
+}
+
+/* --- Featured caso card --- */
+.caso-card--featured {
+    border: 2px solid var(--electric-blue);
+    box-shadow: var(--shadow-glow);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%);
+}
+
+.caso-card--featured::before {
+    opacity: 1;
+    background: linear-gradient(90deg, #0066FF 0%, #6B2DB8 50%, #25D366 100%);
+    height: 4px;
+}
+
+.caso-card--featured:hover {
+    box-shadow: 0 0 0 2px var(--electric-blue), 0 20px 60px rgba(0, 102, 255, 0.25);
+}
+
+/* --- Featured badge --- */
+.caso-badge {
+    position: absolute;
+    top: -1px;
+    right: var(--spacing-md);
+    background: linear-gradient(90deg, var(--electric-blue) 0%, var(--deep-purple) 100%);
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* --- Caso header (avatar + meta) --- */
+.caso-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.caso-avatar {
+    font-size: 2.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.caso-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.caso-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--whatsapp-green);
+    line-height: 1;
+}
+
+.caso-nombre {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.caso-agente {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin: 0;
+}
+
+.caso-agente strong {
+    color: var(--electric-blue);
+    font-weight: 600;
+}
+
+/* --- Caso content --- */
+.caso-titulo {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    font-style: italic;
+}
+
+.caso-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* --- Challenge block --- */
+.caso-challenge {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--amber-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.caso-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-accent);
+    margin-bottom: 2px;
+}
+
+.caso-challenge p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Tech stack pills --- */
+.caso-stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid var(--border-light);
+}
+
+.caso-stack li {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--electric-blue);
+    background: rgba(0, 102, 255, 0.08);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 100px;
+    padding: 2px 10px;
+    letter-spacing: 0.02em;
+}
+
+/* --- Dark mode overrides --- */
+[data-theme="dark"] .caso-card {
+    background: var(--card-bg);
+    border-color: var(--card-border);
+}
+
+[data-theme="dark"] .caso-challenge {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .caso-stack li {
+    background: rgba(0, 102, 255, 0.15);
+    border-color: rgba(0, 102, 255, 0.3);
+}
+
+[data-theme="dark"] .caso-card--featured {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(37, 211, 102, 0.06) 100%);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .casos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .casos-grid {
+        grid-template-columns: 1fr;
     }
 }
 
