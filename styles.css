@@ -1348,11 +1348,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hero-image {
-        height: 400px;
-    }
-
-    .hero-logo {
-        width: 200px;
+        display: none;
     }
 
     .floating-card {
@@ -1516,7 +1512,11 @@ h1, h2, h3 {
     opacity: 0.06;
 }
 
-.hero .container,
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
 .hero-background {
     position: relative;
     z-index: 1;
