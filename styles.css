@@ -1431,9 +1431,14 @@ h1, h2, h3 {
 
 .hero-title {
     font-weight: 800;
-    font-size: 3.75rem;
     line-height: 1.05;
     letter-spacing: -0.03em;
+}
+
+@media (min-width: 769px) {
+    .hero-title {
+        font-size: 3.75rem;
+    }
 }
 
 .section-title {
