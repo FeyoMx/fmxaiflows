@@ -55,4 +55,20 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Aviso de Privacidad -->
+    <url>
+        <loc>https://fmxaiflows.online/aviso-de-privacidad/</loc>
+        <lastmod>2026-06-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Términos y Condiciones -->
+    <url>
+        <loc>https://fmxaiflows.online/terminos-y-condiciones/</loc>
+        <lastmod>2026-06-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
 </urlset>
