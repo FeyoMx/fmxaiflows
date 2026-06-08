@@ -71,4 +71,12 @@
         <priority>0.6</priority>
     </url>
 
+    <!-- Eliminación de Datos -->
+    <url>
+        <loc>https://fmxaiflows.online/eliminacion-de-datos/</loc>
+        <lastmod>2026-06-08</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
 </urlset>

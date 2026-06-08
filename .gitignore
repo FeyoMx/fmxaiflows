@@ -47,6 +47,7 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+tokens.md
 
 # Temporary files
 *.tmp
