@@ -996,7 +996,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .tech-category-title {
     font-size: 1.75rem;
-    color: var(--text-primary);
+    color: #F9FAFB;
     text-align: center;
     margin-bottom: var(--spacing-xl);
     position: relative;
