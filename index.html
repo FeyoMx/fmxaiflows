@@ -82,6 +82,19 @@
             'send_page_view': true,
             'anonymize_ip': true
         });
+        // Google Ads (conversion tracking)
+        gtag('config', 'AW-18500259418');
+
+        // Conversion: clic a WhatsApp (GA4 + Google Ads)
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+            if (!link) return;
+            gtag('event', 'whatsapp_click', {
+                'link_url': link.href,
+                'event_category': 'engagement'
+            });
+            gtag('event', 'conversion', {'send_to': 'AW-18500259418/OWgdCI-o0ZQdENqczvVE'});
+        });
     </script>
 
     <!-- Meta Pixel Code -->
